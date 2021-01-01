@@ -1,20 +1,20 @@
-#Advanced Events
+# Advanced Events
 Events library with host of features to not only listen or emit events, but manage callbacks which are registered.
 
-##Features
+## Features
 [x] Register to one or more placement id(s) using string or an array.
 [x] Add / modify / remove callbacks dynamically. 
 [x] Pause and release events.
 [x] If event is paused, you can collect callbacks, and fire them, when you release event.
 [x] You can purge pending callbacks, or remove all callbacks.  
 
-##Methods
+## Methods
 [x] on()
 [x] off()
 [x] once()
 [x] emit()
 
-##Event Methods
+## Event Methods
 [x] callbacks(): Add callbacks which need to be fired, when events are fired
 [x] removeDuplicates()
 [x] removeNamedCallbacks()
@@ -23,17 +23,17 @@ Events library with host of features to not only listen or emit events, but mana
 [x] purgePendingEventCallbacks()
 [x] purgeCallbacks()
 
-##Properties
+## Properties
 [x] paused
 [x] numberOfCallbacksRegistered
 [x] anyDuplicateFunction
 
-##Roadmap
+## Roadmap
 [x] Finalize the module, with corrections to naming conventions, and proper comments.
 [x] Update test files.
 [x] Create test suite.
 
-##Usage
+## Usage
 ````
 // Create new instance with config
 var advancedEvents = new AdvancedEvents({
