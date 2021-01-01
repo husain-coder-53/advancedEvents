@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <script src="../dist/advancedEvents.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // Create new instance with config
+      var advancedEvents = new AdvancedEvents({
+        overWriteNamedFunctions: true, //Default: false
+        maxCallbacksAllowed: 5, //Default: -1(Any amount)
+        // canHoldEvents: false, //Default: true
+      });
+
+      var advancedEvents = new AdvancedEvents();
+
+      //Event Methods
+      var fooEvent = advancedEvents.on(["fooEvent", "something"]);
+      // // Can alse be called as
+      // var fooAndBarEvents = advancedEvents.on(["fooEvent", "barEvent"]);
+
+      var payload = {
+        something: "Got it",
+      };
+
+      fooEvent
+        .callbacks([
+          successFunction1,
+          function successFunction2() {
+            console.log("Success 2.1");
+          },
+          function successFunction2() {
+            console.log("Success 2.2");
+          },
+        ])
+        // .removeDuplicates() //Only useful to remove duplicate Named functions
+        // .removeNamedCallbacks(["successFunction2"])
+        // .pauseEvent({ saveEmittedEvent: true })
+        // .releaseEvent()
+        // .purgePendingEventCallbacks();
+      // .purgeCallbacks()
+
+      // advancedEvents.off(["fooEvent", "bar", "something2"]);
+      // advancedEvents.once(["foo", "bar"]);
+      // advancedEvents.on(["foo", "bar"], 3);
+      advancedEvents.emit(["fooEvent"], payload);
+      // advancedEvents.emit(["fooEvent"], payload);
+      // advancedEvents.emit(["fooEvent"], payload);
+
+      function successFunction1(eventName, response) {
+        console.log("Success function 1", eventName, response);
+      }
+    </script>
+  </body>
+</html>
